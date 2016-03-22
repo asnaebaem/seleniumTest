@@ -27,6 +27,8 @@ namespace SeleniumNUnitJenkins
         {
             _driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
             _driver.Navigate().GoToUrl("http://www.google.com/");
+            _driver.Manage().Window.Maximize();
+            _driver.Navigate().GoToUrl("http://www.wp.pl/");
         }
     }
 }
