@@ -35,6 +35,7 @@ namespace SeleniumNUnitJenkins
             _driver.Navigate().GoToUrl("http://www.google.com/");
             _driver.Manage().Window.Maximize();
             _driver.Navigate().GoToUrl("http://www.wp.pl/");
+            _driver.Quit();
         }
 
         [Test]
