@@ -21,6 +21,7 @@ namespace SeleniumNUnitJenkins
         private Random rnd = new Random();
         private int tmp;
         private string str_tmp, mix;
+        private ILogs Log;
 
         [SetUp]
         public void SetUp()
@@ -95,7 +96,7 @@ namespace SeleniumNUnitJenkins
         }
 
         [Test]
-        public void ZepsujmyCos()
+        public bool ZepsujmyCos()
         {
             _driver.Navigate().GoToUrl("http://www.google.com/");
             _driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(3));
@@ -105,7 +106,9 @@ namespace SeleniumNUnitJenkins
             }
             catch(NoSuchElementException e)
             {
+                return false;
             }
+            return true;
         }
     }
 }
