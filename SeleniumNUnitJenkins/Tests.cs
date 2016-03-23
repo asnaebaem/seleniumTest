@@ -106,6 +106,7 @@ namespace SeleniumNUnitJenkins
             catch(NoSuchElementException e)
             {
                 Console.WriteLine("No sie nie znalazl :(( " + e.Message + " " + e.Source + " " + e.TargetSite + " " + e.InnerException );
+                Assert.Fail(e.Message + " Ni ma :(");
             }
         }
     }
