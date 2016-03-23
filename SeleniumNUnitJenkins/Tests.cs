@@ -101,11 +101,11 @@ namespace SeleniumNUnitJenkins
             _driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(3));
             try
             {
-                IWebElement elem = _driver.FindElement(By.Id("nieznajdziesztakiego"));
+                _driver.FindElement(By.Id("nieznajdziesztakiego"));
             }
             catch(NoSuchElementException e)
             {
-                Console.WriteLine("No sie nie znalazl :((");
+                Console.WriteLine("No sie nie znalazl :(( " + e.Message + " " + e.Source + " " + e.TargetSite + " " + e.InnerException );
             }
         }
     }
