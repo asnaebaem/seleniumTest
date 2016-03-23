@@ -21,7 +21,6 @@ namespace SeleniumNUnitJenkins
         private Random rnd = new Random();
         private int tmp;
         private string str_tmp, mix;
-        private ILogs Log;
 
         [SetUp]
         public void SetUp()
@@ -96,7 +95,7 @@ namespace SeleniumNUnitJenkins
         }
 
         [Test]
-        public bool ZepsujmyCos()
+        public void ZepsujmyCos()
         {
             _driver.Navigate().GoToUrl("http://www.google.com/");
             _driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(3));
@@ -106,9 +105,10 @@ namespace SeleniumNUnitJenkins
             }
             catch(NoSuchElementException e)
             {
-                return false;
+               Assert.Fail(
+             string.Format( "Unexpected exception of type {0} caught: {1}",
+                            e.GetType(), e.Message ));
             }
-            return true;
         }
     }
 }
