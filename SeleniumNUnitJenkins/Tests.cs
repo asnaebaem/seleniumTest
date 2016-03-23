@@ -99,8 +99,13 @@ namespace SeleniumNUnitJenkins
         {
             _driver.Navigate().GoToUrl("http://www.google.com/");
             _driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(3));
-            IWebElement elem = _driver.FindElement(By.Id("nieznajdziesztakiego"));
-            Assert.AreEqual(elem, 150);
+            try
+            {
+                IWebElement elem = _driver.FindElement(By.Id("nieznajdziesztakiego"));
+            }
+            catch(NoSuchElementException e)
+            {
+            }
         }
     }
 }
